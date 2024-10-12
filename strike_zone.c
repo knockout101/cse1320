@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(int argc, char *args[])
 {
@@ -12,16 +13,17 @@ int main(int argc, char *args[])
     float progress = atof(args[2]);
     int strike_zone = atoi(args[3]);
     
+    int start = round((size / 2.0) - (strike_zone / 2.0));
+    int stop = round((size / 2.0) + (strike_zone / 2.0));
+
     printf("|");
     for(int i = 0; i < size; i++)
     {
-        if(i >= (size / 2) - (strike_zone / 2) & i <= (size / 2) - (strike_zone / 2))
-        {
-            if(i == (size / 2) - (strike_zone / 2))
-                printf("[");
-            elif
-        }
-        if(i < size * progress)
+        if(i == start)
+            printf("[");
+        if(i == stop)
+            printf("]");
+        if(i < round(size * progress))
         {
             printf("=");
         }
